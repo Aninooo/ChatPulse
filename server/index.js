@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
     const messages = await Message.find({ room }).sort({ timestamp: 1 });
     socket.emit('messageHistory', messages);
 
-    socket.to(room).emit('message', { text: `${username} has joined the room.`, username: 'System', timestamp: new Date() });
+    socket.to(room).emit('message', { text: `${username} has joined the room.`, username: 'Anino Bot', timestamp: new Date() });
   });
 
   socket.on('message', async (data) => {
@@ -79,7 +79,7 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     const user = users[socket.id];
     if (user) {
-      socket.to(user.room).emit('message', { text: `${user.username} has left the room.`, username: 'System', timestamp: new Date() });
+      socket.to(user.room).emit('message', { text: `${user.username} has left the room.`, username: 'Anino Bot', timestamp: new Date() });
       delete users[socket.id];
     }
     console.log('User disconnected:', socket.id);
