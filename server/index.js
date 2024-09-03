@@ -23,7 +23,7 @@ await Message.create({ ...message, room: user.room });
 
 const Message = mongoose.model('Message', messageSchema);
 
-let users = {}; // { socketId: { username, room } }
+let users = {}; 
 
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
