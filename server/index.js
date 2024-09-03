@@ -3,6 +3,7 @@ const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
@@ -15,11 +16,17 @@ const io = new Server(server, {
   },
 });
 
-mongoose.connect('mongodb://localhost/chat', { useNewUrlParser: true, useUnifiedTopology: true });
+//MongoDB env
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log('MongoDB connection error:', err));
 
-const message = { ...data, username: user.username, timestamp: new Date() };
-await Message.create({ ...message, room: user.room });
-
+const messageSchema = new mongoose.Schema({
+  username: String,
+  text: String,
+  room: String,
+  timestamp: { type: Date, default: Date.now },
+});
 
 const Message = mongoose.model('Message', messageSchema);
 
@@ -75,6 +82,7 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(4000, () => {
-  console.log('Server is running on port 4000');
+const PORT = process.env.PORT || 4000;
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
