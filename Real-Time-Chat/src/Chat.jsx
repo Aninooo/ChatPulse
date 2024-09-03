@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
+import './Chat.css'
 
 const socket = io('http://localhost:4000');
 
@@ -65,18 +66,20 @@ function Chat() {
       {!isUsernameSet ? (
         <div>
           <input
+               className='input-name'
             type="text"
             placeholder="Enter your username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
+               className='input-name'
             type="text"
             placeholder="Enter room name"
             value={room}
             onChange={(e) => setRoom(e.target.value)}
           />
-          <button onClick={joinRoom}>Join Room</button>
+          <button className='btn' onClick={joinRoom}>Join Room</button>
         </div>
       ) : (
         <div>
@@ -92,6 +95,7 @@ function Chat() {
             )}
           </div>
           <input
+          className='input-send'
             type="text"
             value={message}
             onChange={(e) => {
@@ -102,7 +106,7 @@ function Chat() {
             }}
             onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
           />
-          <button onClick={sendMessage}>Send</button>
+          <button className='send-btn' onClick={sendMessage}>Send</button>
         </div>
       )}
     </div>

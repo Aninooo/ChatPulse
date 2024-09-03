@@ -1,0 +1,21 @@
+.btn{
+    background-color: rgb(128, 19, 19);
+    padding: 10px;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+}
+.input-name{
+    padding: 10px;
+    border-radius: 0px 0px 0px 0px;
+    color: white;
+}
+.send-btn{
+    padding: 10px;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+}
+.input-send{
+    padding: 10px;
+    border-radius: 0px 0px 0px 0px;
+    color: white;
+}

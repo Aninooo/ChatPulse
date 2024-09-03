@@ -16,10 +16,14 @@ const io = new Server(server, {
   },
 });
 
-//MongoDB env
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log('MongoDB connection error:', err));
+const mongoURI = process.env.MONGO_URI;
+
+mongoose.connect(mongoURI, {
+    useNewUrlParser: true,  // Safely remove if using MongoDB driver v4.0.0 or later
+    useUnifiedTopology: true // Safely remove if using MongoDB driver v4.0.0 or later
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 
 const messageSchema = new mongoose.Schema({
   username: String,
@@ -30,7 +34,7 @@ const messageSchema = new mongoose.Schema({
 
 const Message = mongoose.model('Message', messageSchema);
 
-let users = {}; 
+let users = {};
 
 io.on('connection', (socket) => {
   console.log('A user connected:', socket.id);
