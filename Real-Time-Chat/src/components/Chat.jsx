@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
+import axios from 'axios';
 import './Chat.css'
 
 const socket = io('http://localhost:4000');
@@ -11,6 +12,7 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const [typingUsers, setTypingUsers] = useState([]);
   const [isUsernameSet, setIsUsernameSet] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     if (isUsernameSet) {
@@ -47,9 +49,14 @@ function Chat() {
   };
 
   const sendMessage = () => {
-    if (message.trim()) {
-      socket.emit('message', { text: message });
+    if (message.trim() || selectedImage) {
+      const messageData = {
+        text: message,
+        imageUrl: selectedImage ? `/uploads/${selectedImage.name}` : ''
+      };
+      socket.emit('message', messageData);
       setMessage('');
+      setSelectedImage(null);
     }
   };
 
@@ -61,19 +68,37 @@ function Chat() {
     socket.emit('stopTyping');
   };
 
+  const handleImageChange = (event) => {
+    setSelectedImage(event.target.files[0]);
+  };
+
+  const handleImageUpload = async () => {
+    if (selectedImage) {
+      const formData = new FormData();
+      formData.append('image', selectedImage);
+
+      try {
+        await axios.post('http://localhost:4000/upload', formData);
+        sendMessage(); 
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
+    }
+  };
+
   return (
     <div>
       {!isUsernameSet ? (
         <div>
           <input
-               className='input-name'
+            className='input-name'
             type="text"
             placeholder="Enter your username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
-               className='input-name'
+            className='input-name'
             type="text"
             placeholder="Enter room name"
             value={room}
@@ -86,8 +111,9 @@ function Chat() {
           <div>
             {messages.map((msg, index) => (
               <div key={index}>
-                <strong>{msg.username}:</strong> {msg.text} <span>{new Date(msg.timestamp).toLocaleTimeString()}</span>
-
+                <strong>{msg.username}:</strong> {msg.text} 
+                {msg.imageUrl && <img src={`http://localhost:4000${msg.imageUrl}`} alt="uploaded" style={{ maxWidth: '200px', display: 'block', marginTop: '10px' }} />}
+                <span>{new Date(msg.timestamp).toLocaleTimeString()}</span>
               </div>
             ))}
             {typingUsers.length > 0 && (
@@ -95,7 +121,7 @@ function Chat() {
             )}
           </div>
           <input
-          className='input-send'
+            className='input-send'
             type="text"
             value={message}
             onChange={(e) => {
@@ -107,6 +133,12 @@ function Chat() {
             onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
           />
           <button className='send-btn' onClick={sendMessage}>Send</button>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+          <button className='upload-btn' onClick={handleImageUpload}>Upload Image</button>
         </div>
       )}
     </div>

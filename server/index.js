@@ -3,10 +3,14 @@ const http = require('http');
 const { Server } = require('socket.io');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const multer = require('multer');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -19,8 +23,8 @@ const io = new Server(server, {
 const mongoURI = process.env.MONGO_URI;
 
 mongoose.connect(mongoURI, {
-    useNewUrlParser: true,  
-    useUnifiedTopology: true 
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
@@ -28,11 +32,28 @@ mongoose.connect(mongoURI, {
 const messageSchema = new mongoose.Schema({
   username: String,
   text: String,
+  imageUrl: String, // Added field for image URL
   room: String,
   timestamp: { type: Date, default: Date.now },
 });
 
 const Message = mongoose.model('Message', messageSchema);
+
+// Multer setup for file uploads
+const upload = multer({
+  dest: 'public/uploads/', // Directory for uploaded files
+  limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
+});
+
+app.post('/upload', upload.single('image'), (req, res) => {
+  console.log('Upload route hit');
+  if (!req.file) {
+    return res.status(400).json({ error: 'No file uploaded' });
+  }
+  const filePath = `/uploads/${req.file.filename}`;
+  res.json({ filePath });
+});
+
 
 let users = {};
 
@@ -56,7 +77,7 @@ io.on('connection', (socket) => {
       const message = { ...data, username: user.username, timestamp: new Date() };
       console.log('Sending message:', message);
       io.to(user.room).emit('message', message);
-  
+
       // Save message to the database
       await Message.create({ ...message, room: user.room });
     }
