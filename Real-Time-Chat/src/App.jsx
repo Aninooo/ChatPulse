@@ -5,7 +5,9 @@ import CreateUserAccount from '../src/pages/CreateUserAccount.jsx'
 function App() {
   return (
     <div>
-      <h1 className='title'>ChatPulse</h1>
+      <div className='title'>
+        <h1 className='title1'>Chat</h1><h1 className='title2'>Pulse</h1>
+      </div>
       <CreateUserAccount/>
       <Chat />
     </div>
