@@ -27,5 +27,3 @@ lerna-debug.log*
 # Environment variables
 .env
 
-# Other
-.public/

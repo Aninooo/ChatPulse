@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 import axios from 'axios';
-import './Chat.css'
+import './Chat.css';
+import ImageUploader from './ImageUploader';
 
 const socket = io('http://localhost:4000');
 
@@ -68,24 +69,6 @@ function Chat() {
     socket.emit('stopTyping');
   };
 
-  const handleImageChange = (event) => {
-    setSelectedImage(event.target.files[0]);
-  };
-
-  const handleImageUpload = async () => {
-    if (selectedImage) {
-      const formData = new FormData();
-      formData.append('image', selectedImage);
-
-      try {
-        await axios.post('http://localhost:4000/upload', formData);
-        sendMessage(); 
-      } catch (error) {
-        console.error('Error uploading image:', error);
-      }
-    }
-  };
-
   return (
     <div>
       {!isUsernameSet ? (
@@ -133,12 +116,7 @@ function Chat() {
             onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
           />
           <button className='send-btn' onClick={sendMessage}>Send</button>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-          />
-          <button className='upload-btn' onClick={handleImageUpload}>Upload Image</button>
+          <ImageUploader setSelectedImage={setSelectedImage} />
         </div>
       )}
     </div>

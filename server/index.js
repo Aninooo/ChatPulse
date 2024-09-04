@@ -9,7 +9,9 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
+
+
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -38,18 +40,23 @@ const messageSchema = new mongoose.Schema({
 
 const Message = mongoose.model('Message', messageSchema);
 
-const upload = multer({
-  dest: 'public/uploads/', 
-  limits: { fileSize: 5 * 1024 * 1024 }, 
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, path.join(__dirname, 'public/uploads')); 
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
 });
 
+const upload = multer({ storage });
+
 app.post('/upload', upload.single('image'), (req, res) => {
-  console.log('Upload route hit');
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded' });
   }
+  console.log(`Uploaded file: ${req.file.filename}`);
   const filePath = `/uploads/${req.file.filename}`;
-  console.log('File path:', filePath); 
   res.json({ filePath });
 });
 
