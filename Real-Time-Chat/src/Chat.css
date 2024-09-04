@@ -3,6 +3,10 @@
     padding: 10px;
     border-radius: 0px 5px 5px 0px;
     cursor: pointer;
+    transition: background-color 0.50s;
+}
+.btn:hover{
+    background-color:rgb(184, 45, 45);
 }
 .input-name{
     padding: 10px;
