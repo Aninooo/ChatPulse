@@ -37,10 +37,10 @@ h1 {
   line-height: 1.1;
 }
 
-
 .title{
   display: flex;
   justify-content: center;
+  text-shadow: 2px 3px 2px rgb(0, 0, 0);
 }
 .title2{
   color:rgb(184, 45, 45);
