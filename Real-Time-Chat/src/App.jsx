@@ -1,5 +1,5 @@
 import React from 'react';
-import Chat from './Chat';
+import Chat from './components/Chat.jsx';
 import CreateUserAccount from '../src/pages/CreateUserAccount.jsx'
 
 function App() {
