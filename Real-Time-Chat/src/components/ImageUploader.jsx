@@ -5,27 +5,20 @@ import './ImageUploader.css';
 const ImageUploader = ({ onUpload }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const handleImageChange = (event) => {
-    setSelectedImage(event.target.files[0]);
-  };
-
-  const handleImageUpload = async (event) => {
-    const file = event.target.files[0];
-    if (!file) return;
+  const handleImageUpload = async () => {
+    if (selectedImage) {
+      const formData = new FormData();
+      formData.append('image', selectedImage);
   
-    const formData = new FormData();
-    formData.append('image', file);
-  
-    try {
-      const response = await axios.post('http://localhost:4000/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-  
-      console.log('File uploaded successfully:', response.data.filePath);
-    } catch (error) {
-      console.error('Error uploading image:', error);
+      try {
+        const response = await axios.post('http://localhost:4000/upload', formData);
+        console.log('File uploaded successfully:', response.data.filePath);
+        // Update selectedImage state after upload
+        setSelectedImage(null); 
+        sendMessage(); // Call sendMessage after upload
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
     }
   };
   

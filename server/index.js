@@ -11,7 +11,6 @@ const app = express();
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
@@ -32,17 +31,16 @@ mongoose.connect(mongoURI, {
 const messageSchema = new mongoose.Schema({
   username: String,
   text: String,
-  imageUrl: String, // Added field for image URL
+  imageUrl: String, 
   room: String,
   timestamp: { type: Date, default: Date.now },
 });
 
 const Message = mongoose.model('Message', messageSchema);
 
-// Multer setup for file uploads
 const upload = multer({
-  dest: 'public/uploads/', // Directory for uploaded files
-  limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
+  dest: 'public/uploads/', 
+  limits: { fileSize: 5 * 1024 * 1024 }, 
 });
 
 app.post('/upload', upload.single('image'), (req, res) => {
@@ -51,8 +49,10 @@ app.post('/upload', upload.single('image'), (req, res) => {
     return res.status(400).json({ error: 'No file uploaded' });
   }
   const filePath = `/uploads/${req.file.filename}`;
+  console.log('File path:', filePath); 
   res.json({ filePath });
 });
+
 
 
 let users = {};
