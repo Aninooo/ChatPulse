@@ -74,21 +74,25 @@ function Chat() {
       {!isUsernameSet ? (
         <div>
           <input
-            className='input-name'
+            className='input-username'
             type="text"
             placeholder="Enter your username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
-            className='input-name'
+            className='input-room-name'
             type="text"
             placeholder="Enter room name"
             value={room}
             onChange={(e) => setRoom(e.target.value)}
           />
+          <div className='join'>
           <button className='btn' onClick={joinRoom}>Join Room</button>
+          </div>
+          
         </div>
+        
       ) : (
         <div>
           <div>
