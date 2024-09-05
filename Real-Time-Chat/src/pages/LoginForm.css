@@ -1,57 +1,82 @@
-.login{
+.login {
     color: white;
 }
-.login-form{
+
+.login-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding: 20px; /* Added padding for better spacing */
 }
-label{
+
+label {
     display: flex;
     margin-top: 10px;
 }
 
-input{
+input {
     padding: 10px;
-    width: 100%;
-    border-radius: 5px 5px 5px 5px;
+    width: calc(100% - 40px); /* To account for padding/margin and keep it centered */
+    max-width: 280px; /* Adjusted max-width for better fit */
+    border-radius: 5px;
+    margin: 0 auto; /* Center the input */
 }
-.login-btn{
-    background-color: red;
-    padding: 5px;
+
+.login-btn {
+    background-color: brown;
+    padding: 10px;
+    margin-top: 20px;
+    width: calc(100% - 40px); /* Consistent width with input */
+    max-width: 280px;
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    margin: 0 auto; /* Center the button */
+}
+
+p {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.create-account {
     margin-top: 10px;
-    border-radius: 5px 5px 5px 5px;
-}
-p{
-    position: absolute;
-    right: 0;
-    bottom: 230px;
-    left: 480px;
-}
-.create-account{
-    position: absolute;
-    left: 480px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
     cursor: pointer;
 }
 
-@media (max-width: 767px){
-.login-form{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-.login-btn{
-    width: 80px;
-}
- p{
- position: absolute;
- right: 0;
- bottom: 155px;
- left: 180px;   
- }
- .create-account{
-    position: absolute;
-    left: 180px;
+@media (max-width: 360px) {
+    .login-form {
+        padding: 10px; 
+    }
+    
+    .login-btn{
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        align-self: center;
+        align-content: center;
+    }
 
- }
+    .login-btn{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .login-btn:hover{
+        background-color: red;
+    }
+
+    p, .create-account {
+        width: 100%;
+        text-align: center;
+    }
+    .create-account{
+        margin-left: 80px;
+    }
 }
