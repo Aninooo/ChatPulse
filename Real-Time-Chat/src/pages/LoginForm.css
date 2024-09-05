@@ -1,0 +1,57 @@
+.login{
+    color: white;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+label{
+    display: flex;
+    margin-top: 10px;
+}
+
+input{
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px 5px 5px 5px;
+}
+.login-btn{
+    background-color: red;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px 5px 5px 5px;
+}
+p{
+    position: absolute;
+    right: 0;
+    bottom: 230px;
+    left: 480px;
+}
+.create-account{
+    position: absolute;
+    left: 480px;
+    cursor: pointer;
+}
+
+@media (max-width: 767px){
+.login-form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.login-btn{
+    width: 80px;
+}
+ p{
+ position: absolute;
+ right: 0;
+ bottom: 155px;
+ left: 180px;   
+ }
+ .create-account{
+    position: absolute;
+    left: 180px;
+
+ }
+}

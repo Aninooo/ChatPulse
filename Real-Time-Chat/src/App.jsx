@@ -5,11 +5,26 @@ import LoginForm from './pages/LoginForm.jsx';
 
 function App() {
   const [isAccountCreated, setIsAccountCreated] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isCreatingAccount, setIsCreatingAccount] = useState(false);
 
   const handleCreateAccount = (username, password, email) => {
     console.log("Account created for:", { username, email });
-
     setIsAccountCreated(true);
+    setIsCreatingAccount(false); 
+  };
+
+  const handleLogin = (username, password) => {
+    console.log("User logged in:", { username });
+    setIsLoggedIn(true);
+  };
+
+  const handleCreateAccountClick = () => {
+    setIsCreatingAccount(true); 
+  };
+
+  const handleLoginClick = () => {
+    setIsCreatingAccount(false); 
   };
 
   return (
@@ -17,12 +32,24 @@ function App() {
       <div className='title'>
         <h1 className='title1'>Chat</h1><h1 className='title2'>Pulse</h1>
       </div>
-      {!isAccountCreated ? (
-        <CreateAccountForm onCreateAccount={handleCreateAccount} />
-      ) : (
+      
+      {isLoggedIn ? (
         <Chat />
+      ) : (
+        <div>
+          {isCreatingAccount ? (
+            <CreateAccountForm 
+              onCreateAccount={handleCreateAccount} 
+              onLoginClick={handleLoginClick}
+            />
+          ) : (
+            <LoginForm 
+              onLogin={handleLogin} 
+              onCreateAccountClick={handleCreateAccountClick}
+            />
+          )}
+        </div>
       )}
-       
     </div>
   );
 }
