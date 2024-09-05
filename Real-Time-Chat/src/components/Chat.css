@@ -1,7 +1,7 @@
 .btn{
     background-color: rgb(128, 19, 19);
     padding: 10px;
-  
+    border-radius: 5px 5px 5px 5px;
     cursor: pointer;
     transition: background-color 0.50s;
 }
@@ -23,6 +23,7 @@
     cursor: pointer;
     background-color: rgb(184, 45, 45);
     transition: background-color 0.40s;
+    border-radius: 5px 5px 5px 5px;
 }
 .send-btn:hover{
 background-color: rgb(137, 25, 25);
