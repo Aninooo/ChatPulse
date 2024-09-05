@@ -1,109 +1,119 @@
-.btn{
-    background-color: rgb(128, 19, 19);
-    padding: 10px;
-    border-radius: 5px 5px 5px 5px;
-    cursor: pointer;
-    transition: background-color 0.50s;
-}
-.btn:hover{
-    background-color:rgb(184, 45, 45);
-}
-.join-container{
+.chat-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-}
-.input-container {
-    display: flex;
-    align-items: center;
-    gap: 0px;
-    padding: 10px;
-  }
-.input-username{
-    padding: 10px;
-    border-radius: 5px 5px 5px 5px;
-    color: white;
-}
-.input-room-name{
-    padding: 10px;
-    border-radius: 5px 5px 5px 5px;
-    color: white;
-}
-.send-btn {
-    margin-left: 10px; 
+    height: 100vh;
   }
   
-.input-send {
-    flex: 1; 
+  .message-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: black;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    display: block; 
+    max-width: fit-content;
+  }
+  
+  .message-image {
+    max-width: 200px;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .message-time {
+    display: block;
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .typing-indicator {
+    font-style: italic;
+    color: #666;
+  }
+  
+  .input-footer {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+  }
+  
+  .input-send {
+    flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 20px 20px 20px 20px;
+    border-radius: 20px;
+    background-color: #eee;
   }
-input::placeholder{
-    color: rgba(255, 255, 255, 0.356);
-}
-.join{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-.camera-icon {
+  
+  .send-btn {
+    margin-left: 10px;
+  }
+  
+  .camera-icon {
     font-size: 30px;
     cursor: pointer;
-    margin-right: 10px; 
+    margin-right: 10px;
+  }
+  
+  .message-timestamp {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 4px;
   }
 
-@media (max-width: 767px){
-    .join-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 0px;
-        padding: 10px;
-      }
-    .input-username{
-        padding: 10px;
-        color: white;
-        margin-bottom: 10px;
-        border-radius: 5px 5px 5px 5px;
-    }
-    .input-room-name{
-        padding: 10px;
-        color: white;
-        border-radius: 5px 5px 5px 5px;
-    }
+  .message.my-message {
+    align-self: flex-end; 
+    text-align: right;
+    border-radius: 10px; 
+    padding: 10px;
+    margin-left: auto;
+background-color: gray;
+  }
 
-    .input-container {
-        display: flex;
-        justify-content: center; 
-        left: 0;
-        position:absolute;
-        
-      }
-
-      .input-send {
-        padding: 10px;
-        border-radius: 20px 20px 20px 20px;
-        color: white;
-        width: 200px;
-        background-color: #333;
-      }
-      input::placeholder{
-        color: rgba(255, 255, 255, 0.308);
+  .message.other-message {
+background-color: red;
+    align-self: flex-start; 
+    text-align: left; 
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: auto;
+  }
+  
+  .message-container {
+    padding: 10px 20px;
+  }
+  
+  @media (max-width: 767px) {
+    .input-footer {
+      padding: 10px;
+      background-color: #333;
     }
-      .send-btn{
-        margin-left: 0;
-      }
-      .send-icon {
-        color: red; 
-        margin: 0;
-      }
-      .camera-icon {
-        font-size: 30px;
-        cursor: pointer;
-        margin-right: 10px; 
-      }
-      
-      
- 
-}
+  
+    .input-send {
+      background-color: #444;
+    }
+  
+    .send-icon {
+      color: red;
+    }
+  
+    .message-timestamp {
+      font-size: 0.8em;
+      color: #888;
+      margin-bottom: 4px;
+    }
+  
+    .chat-wrapper {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      overflow: hidden;
+    }
+  }
+  

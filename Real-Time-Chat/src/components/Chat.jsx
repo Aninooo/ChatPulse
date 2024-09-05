@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
-import axios from 'axios';
 import './Chat.css';
 import ImageUploader from './ImageUploader';
 import SendIcon from '@mui/icons-material/Send';
@@ -16,6 +15,7 @@ function Chat() {
   const [typingUsers, setTypingUsers] = useState([]);
   const [isUsernameSet, setIsUsernameSet] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [visibleTimestamp, setVisibleTimestamp] = useState(null);
 
   useEffect(() => {
     if (isUsernameSet) {
@@ -55,7 +55,8 @@ function Chat() {
     if (message.trim() || selectedImage) {
       const messageData = {
         text: message,
-        imageUrl: selectedImage ? `/uploads/${selectedImage.name}` : '' 
+        imageUrl: selectedImage ? `/uploads/${selectedImage.name}` : '',
+        username
       };
       socket.emit('message', messageData);
       setMessage('');
@@ -69,6 +70,21 @@ function Chat() {
 
   const handleStopTyping = () => {
     socket.emit('stopTyping');
+  };
+
+  const formatTime = (date) => new Date(date).toLocaleTimeString();
+
+  const shouldShowTimestamp = (index) => {
+    if (index === 0) return true;
+
+    const currentMessageDate = new Date(messages[index].timestamp);
+    const previousMessageDate = new Date(messages[index - 1].timestamp);
+    const difference = (currentMessageDate - previousMessageDate) / (1000 * 60 * 60);
+    return difference >= 1;
+  };
+
+  const handleMessageClick = (index) => {
+    setVisibleTimestamp(visibleTimestamp === index ? null : index);
   };
 
   return (
@@ -96,30 +112,39 @@ function Chat() {
           </div>
         </div>
       ) : (
-        <div>
-          <div>
+        <div className='chat-wrapper'>
+          <div className='message-container'>
             {messages.map((msg, index) => (
-              <div key={index}>
-                <strong>{msg.username}:</strong> {msg.text} 
+              <div 
+                key={index} 
+                className={`message ${msg.username === username ? 'my-message' : 'other-message'}`}
+                onClick={() => handleMessageClick(index)}
+              >
+                {visibleTimestamp === index && (
+                  <div className='message-timestamp'>{formatTime(msg.timestamp)}</div>
+                )}
+                {msg.username !== username && <strong>{msg.username}:</strong>}
+                {msg.text}
                 {msg.imageUrl && (
                   <img
                     src={`http://localhost:4000${msg.imageUrl}`}
                     alt="uploaded"
-                    style={{ maxWidth: '200px', display: 'block', marginTop: '10px' }}
+                    className='message-image'
                   />
                 )}
-                <span>{new Date(msg.timestamp).toLocaleTimeString()}</span>
               </div>
             ))}
             {typingUsers.length > 0 && (
-              <div>{typingUsers.join(', ')} {typingUsers.length > 1 ? 'are typing...' : 'is typing...'}</div>
+              <div className='typing-indicator'>
+                {typingUsers.join(', ')} {typingUsers.length > 1 ? 'are typing...' : 'is typing...'}
+              </div>
             )}
           </div>
-          <div className="input-container">
+          <div className='input-footer'>
             <ImageUploader setSelectedImage={setSelectedImage} />
             <input
-              className="input-send"
-              type="text"
+              className='input-send'
+              type='text'
               value={message}
               onChange={(e) => {
                 setMessage(e.target.value);
@@ -130,11 +155,10 @@ function Chat() {
               onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
             />
             <Button
-              className="send-btn"
+              className='send-btn'
               onClick={sendMessage}
-              endIcon={<SendIcon className='send-icon' style={{ fontSize: 30 }} />}
-            >
-            </Button>
+              endIcon={<SendIcon className='send-icon' />}
+            />
           </div>
         </div>
       )}
