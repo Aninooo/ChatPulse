@@ -19,14 +19,7 @@
     color: white;
 }
 .send-btn{
-    padding: 10px;
     cursor: pointer;
-    background-color: rgb(184, 45, 45);
-    transition: background-color 0.40s;
-    border-radius: 5px 5px 5px 5px;
-}
-.send-btn:hover{
-background-color: rgb(137, 25, 25);
 }
 .input-send{
     padding: 10px;
@@ -40,4 +33,28 @@ input::placeholder{
     display: flex;
     justify-content: center;
     margin-top: 10px;
+}
+@media (max-width: 767px){
+    .input-container {
+        display: flex;
+        justify-content: center; 
+        margin-top: 20px; 
+      }
+
+      .input-send {
+        padding: 10px;
+        border-radius: 20px 20px 20px 20px;
+        color: white;
+        width: 200px;
+        background-color: #333;
+      }
+      .send-btn{
+        margin-left: 0;
+      }
+      .send-icon {
+        color: red; 
+        margin: 0;
+      }
+
+ 
 }

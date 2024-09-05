@@ -3,6 +3,9 @@ import { io } from 'socket.io-client';
 import axios from 'axios';
 import './Chat.css';
 import ImageUploader from './ImageUploader';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
+import { Button } from '@mui/material';
 
 const socket = io('http://localhost:4000');
 
@@ -70,7 +73,7 @@ function Chat() {
   };
 
   return (
-    <div>
+    <div className='chat-container'>
       {!isUsernameSet ? (
         <div>
           <input
@@ -107,24 +110,32 @@ function Chat() {
               <div>{typingUsers.join(', ')} {typingUsers.length > 1 ? 'are typing...' : 'is typing...'}</div>
             )}
           </div>
-          <input
-            className='input-send'
-            type="text"
-            value={message}
-            onChange={(e) => {
-              setMessage(e.target.value);
-              handleTyping();
-              clearTimeout(window.typingTimeout);
-              window.typingTimeout = setTimeout(handleStopTyping, 1000); 
-            }}
-            onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-          />
-          <button className='send-btn' onClick={sendMessage}>Send</button>
-          <ImageUploader setSelectedImage={setSelectedImage} />
+          <div className="input-container">
+  <input
+    className="input-send"
+    type="text"
+    value={message}
+    onChange={(e) => {
+      setMessage(e.target.value);
+      handleTyping();
+      clearTimeout(window.typingTimeout);
+      window.typingTimeout = setTimeout(handleStopTyping, 1000);
+    }}
+    onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+  />
+   <Button
+  className="send-btn"
+  onClick={sendMessage}
+  endIcon={<SendIcon className='send-icon'style={{ fontSize: 30 }} /> }
+>
+</Button>
+</div>
+<ImageUploader setSelectedImage={setSelectedImage} />
+
         </div>
       )}
     </div>
   );
 }
 
-export default Chat;
+export default Chat;  
