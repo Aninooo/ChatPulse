@@ -56,7 +56,7 @@ function Chat() {
     if (message.trim() || selectedImage) {
       const messageData = {
         text: message,
-        imageUrl: selectedImage ? `/uploads/${selectedImage.name}` : ''
+        imageUrl: selectedImage ? `/uploads/${selectedImage.name}` : '' 
       };
       socket.emit('message', messageData);
       setMessage('');
@@ -91,18 +91,22 @@ function Chat() {
             onChange={(e) => setRoom(e.target.value)}
           />
           <div className='join'>
-          <button className='btn' onClick={joinRoom}>Join Room</button>
+            <button className='btn' onClick={joinRoom}>Join Room</button>
           </div>
-          
         </div>
-        
       ) : (
         <div>
           <div>
             {messages.map((msg, index) => (
               <div key={index}>
                 <strong>{msg.username}:</strong> {msg.text} 
-                {msg.imageUrl && <img src={`http://localhost:4000${msg.imageUrl}`} alt="uploaded" style={{ maxWidth: '200px', display: 'block', marginTop: '10px' }} />}
+                {msg.imageUrl && (
+                  <img
+                    src={`http://localhost:4000${msg.imageUrl}`}
+                    alt="uploaded"
+                    style={{ maxWidth: '200px', display: 'block', marginTop: '10px' }}
+                  />
+                )}
                 <span>{new Date(msg.timestamp).toLocaleTimeString()}</span>
               </div>
             ))}
@@ -111,31 +115,30 @@ function Chat() {
             )}
           </div>
           <div className="input-container">
-  <input
-    className="input-send"
-    type="text"
-    value={message}
-    onChange={(e) => {
-      setMessage(e.target.value);
-      handleTyping();
-      clearTimeout(window.typingTimeout);
-      window.typingTimeout = setTimeout(handleStopTyping, 1000);
-    }}
-    onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
-  />
-   <Button
-  className="send-btn"
-  onClick={sendMessage}
-  endIcon={<SendIcon className='send-icon'style={{ fontSize: 30 }} /> }
->
-</Button>
-</div>
-<ImageUploader setSelectedImage={setSelectedImage} />
-
+            <input
+              className="input-send"
+              type="text"
+              value={message}
+              onChange={(e) => {
+                setMessage(e.target.value);
+                handleTyping();
+                clearTimeout(window.typingTimeout);
+                window.typingTimeout = setTimeout(handleStopTyping, 1000);
+              }}
+              onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+            />
+            <Button
+              className="send-btn"
+              onClick={sendMessage}
+              endIcon={<SendIcon className='send-icon' style={{ fontSize: 30 }} />}
+            >
+            </Button>
+          </div>
+          <ImageUploader setSelectedImage={setSelectedImage} />
         </div>
       )}
     </div>
   );
 }
 
-export default Chat;  
+export default Chat;

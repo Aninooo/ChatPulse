@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
+import { IconButton } from '@mui/material';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 
 function ImageUploader({ setSelectedImage }) {
   const [selectedImage, setSelectedImageLocal] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(null);
+  const fileInputRef = useRef(null);
 
   const handleImageChange = (event) => {
-    setSelectedImageLocal(event.target.files[0]);
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImageLocal(file);
+      setSelectedImage(file);
+      handleImageUpload(file);
+    }
   };
 
-  const handleImageUpload = async () => {
-    if (!selectedImage) {
-      return;
-    }
+  const handleImageUpload = async (file) => {
+    if (!file) return;
 
     const formData = new FormData();
-    formData.append('image', selectedImage);
+    formData.append('image', file);
 
     setUploading(true);
     setError(null);
@@ -24,7 +30,6 @@ function ImageUploader({ setSelectedImage }) {
     try {
       const response = await axios.post('http://localhost:4000/upload', formData);
       console.log(response.data.filePath); 
-      setSelectedImage(selectedImage); 
     } catch (err) {
       console.error('Error uploading image:', err);
       setError('Error uploading image. Please try again.');
@@ -39,10 +44,19 @@ function ImageUploader({ setSelectedImage }) {
         type="file"
         accept="image/*"
         onChange={handleImageChange}
+        style={{ display: 'none' }} 
+        ref={fileInputRef}
       />
-      <button onClick={handleImageUpload} disabled={uploading}>
-        {uploading ? 'Uploading...' : 'Upload Image'}
-      </button>
+      <label>
+        <IconButton
+          color="primary"
+          component="span"
+          onClick={() => fileInputRef.current.click()}
+        >
+          <PhotoCameraIcon />
+        </IconButton>
+      </label>
+      {uploading && <p>Uploading...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
