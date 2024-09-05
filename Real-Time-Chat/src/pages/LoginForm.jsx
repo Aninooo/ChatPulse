@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './LoginForm.css'
+import './LoginForm.css';
 
 function LoginForm({ onLogin, onCreateAccountClick }) {
   const [username, setUsername] = useState('');
@@ -11,32 +11,35 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
   };
 
   return (
-    <div className='Login-form'>
+    <div className='login-form'>
       <h2 className='login'>Login</h2>
       <form onSubmit={handleSubmit}>
-        <label>Username:</label>
-        <input 
-          type="text" 
-          placeholder="Username" 
-          value={username} 
-          onChange={(e) => setUsername(e.target.value)} 
-          required 
-        />
-        <label>Password:</label>
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-          required 
-        />
+        <div className='input-wrapper'>
+          <input 
+            type="text" 
+            placeholder=" " 
+            value={username} 
+            onChange={(e) => setUsername(e.target.value)} 
+            required 
+          />
+          <label>Username</label>
+        </div>
+        <div className='input-wrapper'>
+          <input 
+            type="password" 
+            placeholder=" " 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            required 
+          />
+          <label>Password</label>
+        </div>
         <button className='login-btn' type="submit">Login</button>
       </form>
-     <p>Don't have account?</p>
-     <a className='create-account' onClick={onCreateAccountClick}>Create account</a>
+      <p>Don't have an account?</p>
+      <a className='create-account' onClick={onCreateAccountClick}>Create account</a>
     </div>
   );
 }
 
 export default LoginForm;
- 

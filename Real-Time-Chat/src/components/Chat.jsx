@@ -91,7 +91,6 @@ function Chat() {
     <div className='chat-container'>
       {!isUsernameSet ? (
         <div className='join-container'>
-          <label>Username:</label>
           <input
             className='input-username'
             type="text"
@@ -99,7 +98,6 @@ function Chat() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <label>Room name:</label>
           <input
             className='input-room-name'
             type="text"
@@ -144,6 +142,7 @@ function Chat() {
             <ImageUploader setSelectedImage={setSelectedImage} />
             <input
               className='input-send'
+              placeholder=''
               type='text'
               value={message}
               onChange={(e) => {
