@@ -91,23 +91,26 @@ function Chat() {
     <div className='chat-container'>
       {!isUsernameSet ? (
         <div className='join-container'>
+          <div className='input-username'>
           <input
-            className='input-username'
             type="text"
             placeholder="Enter your username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          </div>
+          <div className='input-room-name'>
           <input
-            className='input-room-name'
             type="text"
             placeholder="Enter room name"
             value={room}
             onChange={(e) => setRoom(e.target.value)}
           />
-          <div className='join'>
-            <button className='btn' onClick={joinRoom}>Join Room</button>
           </div>
+          <div>
+          <button className='btn' onClick={joinRoom}>Join Room</button>
+          </div>
+           
         </div>
       ) : (
         <div className='chat-wrapper'>
