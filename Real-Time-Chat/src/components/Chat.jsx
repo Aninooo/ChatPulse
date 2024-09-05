@@ -74,7 +74,8 @@ function Chat() {
   return (
     <div className='chat-container'>
       {!isUsernameSet ? (
-        <div>
+        <div className='join-container'>
+          <label>Username:</label>
           <input
             className='input-username'
             type="text"
@@ -82,6 +83,7 @@ function Chat() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          <label>Room name:</label>
           <input
             className='input-room-name'
             type="text"

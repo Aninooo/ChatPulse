@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Chat from './components/Chat.jsx';
 import CreateAccountForm from './pages/CreateAccountForm';
+import LoginForm from './pages/LoginForm.jsx';
 
 function App() {
   const [isAccountCreated, setIsAccountCreated] = useState(false);
@@ -21,6 +22,7 @@ function App() {
       ) : (
         <Chat />
       )}
+       
     </div>
   );
 }

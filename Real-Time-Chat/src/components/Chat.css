@@ -8,6 +8,11 @@
 .btn:hover{
     background-color:rgb(184, 45, 45);
 }
+.join-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .input-container {
     display: flex;
     align-items: center;
@@ -16,12 +21,12 @@
   }
 .input-username{
     padding: 10px;
-    border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 5px 5px 5px;
     color: white;
 }
 .input-room-name{
     padding: 10px;
-    border-radius: 0px 5px 5px 0px;
+    border-radius: 5px 5px 5px 5px;
     color: white;
 }
 .send-btn {
@@ -35,7 +40,7 @@
     border-radius: 20px 20px 20px 20px;
   }
 input::placeholder{
-    color: white;
+    color: rgba(255, 255, 255, 0.356);
 }
 .join{
     display: flex;
@@ -49,10 +54,31 @@ input::placeholder{
   }
 
 @media (max-width: 767px){
+    .join-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0px;
+        padding: 10px;
+      }
+    .input-username{
+        padding: 10px;
+        color: white;
+        margin-bottom: 10px;
+        border-radius: 5px 5px 5px 5px;
+    }
+    .input-room-name{
+        padding: 10px;
+        color: white;
+        border-radius: 5px 5px 5px 5px;
+    }
+
     .input-container {
         display: flex;
         justify-content: center; 
-        margin-top: 20px; 
+        left: 0;
+        position:absolute;
+        
       }
 
       .input-send {
@@ -62,6 +88,9 @@ input::placeholder{
         width: 200px;
         background-color: #333;
       }
+      input::placeholder{
+        color: rgba(255, 255, 255, 0.308);
+    }
       .send-btn{
         margin-left: 0;
       }
