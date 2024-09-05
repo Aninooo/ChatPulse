@@ -8,6 +8,12 @@
 .btn:hover{
     background-color:rgb(184, 45, 45);
 }
+.input-container {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    padding: 10px;
+  }
 .input-username{
     padding: 10px;
     border-radius: 5px 0px 0px 5px;
@@ -18,14 +24,16 @@
     border-radius: 0px 5px 5px 0px;
     color: white;
 }
-.send-btn{
-    cursor: pointer;
-}
-.input-send{
+.send-btn {
+    margin-left: 10px; 
+  }
+  
+.input-send {
+    flex: 1; 
     padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 20px 20px 20px 20px;
-    color: white;
-}
+  }
 input::placeholder{
     color: white;
 }
@@ -34,6 +42,12 @@ input::placeholder{
     justify-content: center;
     margin-top: 10px;
 }
+.camera-icon {
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 10px; 
+  }
+
 @media (max-width: 767px){
     .input-container {
         display: flex;
@@ -54,6 +68,11 @@ input::placeholder{
       .send-icon {
         color: red; 
         margin: 0;
+      }
+      .camera-icon {
+        font-size: 30px;
+        cursor: pointer;
+        margin-right: 10px; 
       }
 
  

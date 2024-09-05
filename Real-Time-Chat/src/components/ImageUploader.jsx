@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import { IconButton } from '@mui/material';
 import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import './Chat.css'
 
 function ImageUploader({ setSelectedImage }) {
   const [selectedImage, setSelectedImageLocal] = useState(null);
@@ -53,7 +54,7 @@ function ImageUploader({ setSelectedImage }) {
           component="span"
           onClick={() => fileInputRef.current.click()}
         >
-          <PhotoCameraIcon />
+          <PhotoCameraIcon className='camera-icon'/>
         </IconButton>
       </label>
       {uploading && <p>Uploading...</p>}

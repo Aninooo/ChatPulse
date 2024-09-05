@@ -4,7 +4,6 @@ import axios from 'axios';
 import './Chat.css';
 import ImageUploader from './ImageUploader';
 import SendIcon from '@mui/icons-material/Send';
-import Stack from '@mui/material/Stack';
 import { Button } from '@mui/material';
 
 const socket = io('http://localhost:4000');
@@ -115,6 +114,7 @@ function Chat() {
             )}
           </div>
           <div className="input-container">
+            <ImageUploader setSelectedImage={setSelectedImage} />
             <input
               className="input-send"
               type="text"
@@ -134,7 +134,6 @@ function Chat() {
             >
             </Button>
           </div>
-          <ImageUploader setSelectedImage={setSelectedImage} />
         </div>
       )}
     </div>
