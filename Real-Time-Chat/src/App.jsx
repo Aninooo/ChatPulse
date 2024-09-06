@@ -28,11 +28,7 @@ function App() {
   };
 
   return (
-    <div>
-      <div className='title'>
-        <h1 className='title1'>Chat</h1><h1 className='title2'>Pulse</h1>
-      </div>
-      
+    <div> 
       {isLoggedIn ? (
         <Chat />
       ) : (

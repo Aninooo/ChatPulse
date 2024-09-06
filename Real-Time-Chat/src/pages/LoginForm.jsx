@@ -11,7 +11,11 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
   };
 
   return (
+    
     <div className='login-form'>
+      <div className='title'>
+        <h1 className='title1'>Chat</h1><h1 className='title2'>Pulse</h1>
+      </div>
       <h2 className='login'>Login</h2>
       <form onSubmit={handleSubmit}>
         <div className='input-wrapper'>
