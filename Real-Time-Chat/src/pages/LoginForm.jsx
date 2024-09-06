@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
+import Logo from '/pulse-logo.png'
 
 function LoginForm({ onLogin, onCreateAccountClick }) {
   const [username, setUsername] = useState('');
@@ -14,6 +15,7 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
     <div className='parent-login-form'>
     <div className='login-form'>
       <div className='title'>
+        <img className="pulse-logo" src={Logo} alt="pulse logo" />
         <h1 className='title1'>Chat</h1><h1 className='title2'>Pulse</h1>
       </div>
       <h2 className='login'>Login</h2>
