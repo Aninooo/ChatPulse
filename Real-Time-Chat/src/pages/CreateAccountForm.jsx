@@ -12,6 +12,7 @@ function CreateAccountForm({ onCreateAccount }) {
   };
 
   return (
+    <div className='parent-container'>
     <div className="create-account-form">
       <h2>Create Account</h2>
       <form onSubmit={handleSubmit}>
@@ -42,8 +43,11 @@ function CreateAccountForm({ onCreateAccount }) {
             required
           />
         </div>
+        <div>
         <button type="submit">Create Account</button>
+        </div>
       </form>
+    </div>
     </div>
   );
 }

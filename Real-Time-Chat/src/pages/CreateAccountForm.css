@@ -1,9 +1,14 @@
+.parent-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;           
+}
 .create-account-form {
     max-width: 400px;
-    padding: 20px;
+    padding: 60px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    background-color: #f9f9f9;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -13,37 +18,53 @@
     text-align: center;
     display: flex;
     justify-content: center;
+    color: black;
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 70px;
+    font-size: 30px;
   }
   
   .create-account-form label {
     display: block;
     margin-bottom: 8px;
     color: black;
+    position: relative;
+    left: 20px;
+    right: 0;
+    bottom: 50px;
   }
   
   .create-account-form input {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     width: 250px;
-    padding: 8px;
-    margin-top: 0;
+    padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    background-color: rgba(0, 0, 0, 0.671);
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 50px;
   }
   
   .create-account-form button {
-    width: 100%;
+    width: 250px;
     padding: 10px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: rgba(255, 0, 0, 0.541);
     border: none;
-    border-radius: 5px;
+    border-radius: 5px 5px 5px 5px;
+    position: relative;
+    left: 20px;
+    right: 0;
+    bottom: 40px;
     cursor: pointer;
+    transition: 0.40s;
   }
   .create-account-form button:hover {
-    background-color: #45a049;
+    background-color: #ac292977;
   }
   
-  h2{
-    color: black;
-  }

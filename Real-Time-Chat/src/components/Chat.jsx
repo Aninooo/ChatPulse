@@ -91,6 +91,9 @@ function Chat() {
     <div className='chat-container'>
       {!isUsernameSet ? (
         <div className='join-container'>
+           <div className='title'>
+        <h1 className='title1'>Chat</h1><h1 className='title2'>Pulse</h1>
+      </div>
           <div className='input-username'>
           <input
             type="text"

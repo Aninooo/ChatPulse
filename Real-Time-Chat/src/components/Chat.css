@@ -101,12 +101,20 @@
   padding: 10px;
   margin-right: auto;
 }
+.chat-container .join-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
 
 .join-container{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding-top: 150px;
+    
 }
 .input-room-name{
     padding: 10px;

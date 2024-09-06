@@ -1,3 +1,9 @@
+.parent-login-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .login {
     color: white;
     margin-bottom: 0px;
@@ -6,7 +12,7 @@
     position: relative;
     right: 65px;
     top: 10px;
-
+    margin-top: 0;
 }
 
 .login-form {
@@ -19,6 +25,7 @@
     position: relative;
     background-color: #363535;
     margin-top: 150px;
+    border: 1px solid #ccc;
 }
 
 .title{
@@ -68,7 +75,8 @@ input:not(:placeholder-shown) + label {
     top: -10px;
     left: 10px;
     font-size: 15px;
-    color: white;
+    color: rgb(201, 38, 38);
+    font-weight: bold;
 }
 
 .login-btn {
@@ -106,16 +114,45 @@ p {
 }
 
 @media (max-width: 360px) {
+    .parent-login-form{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .login-form { 
+        min-width: 120px;
+        width: 250px;
+    }
+    .login {
+        margin-bottom: 12px;
+    }
+    .title{
+        font-size: 10px;
+      }
     .login-form {
         padding: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin-top: 100px;
+        font-size: 13px;
+    }
+    input {
+       width: 200px; 
     }
     
-    
+input:focus + label,
+input:not(:placeholder-shown) + label {
+    top: -10px;
+    left: 10px;
+    font-size: 13px;
+    color: rgb(201, 38, 38);
+    font-weight: bold;
+}
+
     .create-account {
-        margin-top: 10px;
         margin-left: 0;
+        margin-bottom: 10px;
     }
 }

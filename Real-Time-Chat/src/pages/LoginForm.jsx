@@ -11,7 +11,7 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
   };
 
   return (
-    
+    <div className='parent-login-form'>
     <div className='login-form'>
       <div className='title'>
         <h1 className='title1'>Chat</h1><h1 className='title2'>Pulse</h1>
@@ -42,6 +42,7 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
       </form>
       <p>Don't have an account?</p>
       <a className='create-account' onClick={onCreateAccountClick}>Create account</a>
+    </div>
     </div>
   );
 }
