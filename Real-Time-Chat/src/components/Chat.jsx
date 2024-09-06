@@ -4,6 +4,7 @@ import './Chat.css';
 import ImageUploader from './ImageUploader';
 import SendIcon from '@mui/icons-material/Send';
 import { Button } from '@mui/material';
+import Logo from '/pulse-logo.png';
 
 const socket = io('http://localhost:4000');
 
@@ -93,6 +94,7 @@ function Chat() {
         <div className='join-container'>
            <div className='title'>
         <h1 className='title1'>Chat</h1><h1 className='title2'>Pulse</h1>
+        <img className="pulse-logo" src={Logo} alt="pulse logo" />
       </div>
           <div className='input-username'>
           <input

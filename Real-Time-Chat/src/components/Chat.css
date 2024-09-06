@@ -150,6 +150,7 @@
   .input-send {
     background-color: #444;
     padding: 10px !important;
+    color: white;
   }
 
   .send-btn {

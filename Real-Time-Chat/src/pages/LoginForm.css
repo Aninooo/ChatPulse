@@ -165,7 +165,26 @@ p {
 .create-account:hover{
     color: red;
 }
-
+  .login-btn.loading::after {
+    content: '';
+    display: inline-block;
+    border: 3px solid red;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 
 @media (max-width: 360px) {
     .parent-login-form{
@@ -181,6 +200,10 @@ p {
     .login {
         margin-bottom: 12px;
     }
+    .pulse-logo{
+        width: 40px;
+        height: 40px; 
+      }
     .title{
         font-size: 10px;
         margin-top: 10px;
@@ -211,3 +234,9 @@ input:not(:placeholder-shown) + label {
         margin-bottom: 10px;
     }
 }
+  
+  .login-btn.loading {
+    background-color: transparent;
+    cursor: not-allowed;
+  }
+  
