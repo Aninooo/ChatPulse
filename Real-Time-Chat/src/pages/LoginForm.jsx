@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
 import Logo from '/pulse-logo.png';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function LoginForm({ onLogin, onCreateAccountClick }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +16,10 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
       onLogin(username, password);
       setLoading(false);
     }, 2000); 
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -37,13 +43,17 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
           </div>
           <div className='input-wrapper'>
             <input 
-              type="password" 
+              type={showPassword ? "text" : "password"} 
               placeholder=" " 
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
               required 
             />
             <label>Password</label>
+            <i 
+              className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} password-toggle`} 
+              onClick={togglePasswordVisibility} 
+            ></i>
           </div>
           <button 
             className={`login-btn ${loading ? 'loading' : ''}`} 
