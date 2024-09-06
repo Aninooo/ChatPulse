@@ -68,3 +68,24 @@
     background-color: #ac292977;
   }
   
+@media  (max-width: 360px){
+  .parent-container {
+    display: flex;
+    justify-content: center;    
+    height: 100vh;           
+  }
+  .create-account-form {
+    padding: 20px;
+    
+  }
+  .create-account-form h2 {
+    font-size: 20px;
+  }
+  .create-account-form input {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+}
