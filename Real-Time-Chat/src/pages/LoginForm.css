@@ -3,15 +3,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 .login {
     color: white;
     margin-bottom: 0px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     position: relative;
-    right: 65px;
-    top: 10px;
+    top: 0px;
     margin-top: 0;
 }
 
@@ -20,44 +21,86 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px; 
+    padding: 20px;
     min-width: 320px;
     position: relative;
     background-color: #363535;
     margin-top: 150px;
     border: 1px solid #ccc;
-}
-
-.title{
+    border-radius: 10px;
+    background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(255,255,255,0.1));
+  }
+  
+  .login-form::before, .login-form::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(255,255,255,0.1));
+    z-index: -1;
+  }
+  
+  .title {
     display: flex;
     justify-content: center;
     text-shadow: 2px 3px 2px rgb(0, 0, 0);
+    margin-top: -25px;
+    margin-bottom: 10px;
   }
-  .title2{
-    color:rgb(184, 45, 45);
+  
+  .title2 {
+    color: rgb(184, 45, 45);
+  }
+  
+  .input-wrapper {
+    position: relative;
+    margin-top: 30px;
+    max-width: 280px;
+  }
+  
+  .input-wrapper label {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    color: white;
+    transition: 0.2s ease all;
+    pointer-events: none;
+    padding: 0 4px;
+    transform: translateY(0); 
+  }
+  
+  .input-wrapper input {
+    width: 100%;
+    padding: 20px 10px 10px; 
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgba(0, 0, 0, 0.671);
+    color: white;
+    outline: none;
+    transition: padding 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .input-wrapper input:focus {
+    border-color: red; 
+  }
+  
+  .input-wrapper input:focus + label,
+  .input-wrapper input:not(:placeholder-shown) + label {
+    top: -25px; 
+    left: 5px;
+    font-size: 16px;
+    color: white; 
   }
   
 
-.input-wrapper {
-    position: relative;
-    margin-top: 20px;
-    width: calc(100% - 40px); 
-    max-width: 280px;
-    
-}
-
-.input-wrapper label {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: white;
-    transition: 0.2s ease all;
-    pointer-events: none; 
-    background-color: #363535;
-    margin-left: 20px;
-}
-
 input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 15px 10px 10px;
     width: 100%;
     max-width: 100%;
@@ -67,7 +110,7 @@ input {
     color: white;
     font-size: 16px;
     box-sizing: border-box;
-    margin-left: 20px;
+    margin-bottom: 10px;
 }
 
 input:focus + label,
@@ -76,7 +119,7 @@ input:not(:placeholder-shown) + label {
     left: 10px;
     font-size: 15px;
     color: rgb(201, 38, 38);
-    font-weight: bold;
+
 }
 
 .login-btn {
@@ -129,6 +172,7 @@ p {
     }
     .title{
         font-size: 10px;
+        margin-top: 10px;
       }
     .login-form {
         padding: 10px;
