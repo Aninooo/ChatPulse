@@ -43,8 +43,8 @@ function CreateAccountForm({ onCreateAccount }) {
             required
           />
         </div>
-        <div>
-        <button type="submit">Create Account</button>
+        <div className='create-account-form-container'>
+        <button className='create-account-btn' type="submit">Create Account</button>
         </div>
       </form>
     </div>
