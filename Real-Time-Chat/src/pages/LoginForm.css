@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: auto;
     
 }
 .login {
@@ -141,15 +142,15 @@ input:not(:placeholder-shown) + label {
 .login-btn {
     background-color:rgb(224, 77, 77);
     padding: 10px;
-    margin-top: 20px;
-    width: calc(100% - 40px);
+    margin-top: 40px;
+    width: calc(100% - 0px);
     max-width: 280px;
     border-radius: 5px;
     text-align: center;
     color: white;
     cursor: pointer;
     border: none;
-    margin-left: 20px;
+    
 }
 
 .login-btn:hover {
@@ -164,15 +165,26 @@ p {
 }
 
 .create-account {
-    margin-top: 10px;
     font-size: 14px;
     text-align: center;
     color: white;
     text-decoration: underline;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 1;
+    bottom: 10px;
 }
 .create-account:hover{
     color: red;
+}
+.setNewPassword{
+  position: absolute;
+  margin-left: 110px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 13px;
 }
   .login-btn.loading::after {
     content: '';
@@ -253,7 +265,8 @@ input:not(:placeholder-shown) + label {
     .setNewPassword{
       color: white;
       font-size: 11px;
-      padding-left: 25px;
+      margin-top: 10px;
+      position: absolute;
     }
 }
 

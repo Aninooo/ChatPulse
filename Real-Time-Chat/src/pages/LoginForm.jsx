@@ -91,6 +91,7 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
                   onClick={togglePasswordVisibility} 
                 ></i>
               </div>
+              <a className='setNewPassword' onClick={() => setForgotPasswordMode(true)}>Forgot password?</a>
               <button 
                 className={`login-btn ${loading ? 'loading' : ''}`} 
                 type="submit" 
@@ -101,7 +102,6 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
             </form>
             <p className='dont-have-acct'>Don't have an account?</p>
             <a className='create-account' onClick={onCreateAccountClick}>Create account</a>
-            <a className='setNewPassword' onClick={() => setForgotPasswordMode(true)}>Forgot password?</a>
           </div>
         )}
       </div>
