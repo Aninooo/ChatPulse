@@ -142,7 +142,7 @@ input:not(:placeholder-shown) + label {
 .login-btn {
     background-color:rgb(224, 77, 77);
     padding: 10px;
-    margin-top: 40px;
+    margin-top: 10px;
     width: calc(100% - 0px);
     max-width: 280px;
     border-radius: 5px;
@@ -180,11 +180,13 @@ p {
     color: red;
 }
 .setNewPassword{
-  position: absolute;
-  margin-left: 110px;
-  margin-top: 10px;
   cursor: pointer;
   font-size: 13px;
+  color: white;
+}
+
+.setNewPassword:hover{
+  color: red;
 }
   .login-btn.loading::after {
     content: '';
@@ -196,6 +198,15 @@ p {
     height: 20px;
     animation: spin 1s linear infinite;
     margin-left: 10px;
+  }
+  .back-login{
+    position: relative;
+    color: white;
+    cursor: pointer;
+    top: 10px;
+  }
+  .back-login:hover{
+    color: rgb(212, 73, 73);
   }
   
   @keyframes spin {
@@ -218,6 +229,11 @@ p {
     .login {
         margin-bottom: -5px;
     }
+    .login-btn {
+      margin-top: 40px
+      
+  }
+  
     .pulse-logo{
         width: 40px;
         height: 40px; 
@@ -258,8 +274,8 @@ input:not(:placeholder-shown) + label {
         padding-left: 15px;
     }
     .dont-have-acct{
-      margin-bottom: 5px;
-      font-size: 15px;
+      margin-bottom: 10px;
+      font-size: 13px;
 
     }
     .setNewPassword{

@@ -61,7 +61,7 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
                 Send Reset Link
               </button>
             </form>
-            <a onClick={() => setForgotPasswordMode(false)}>Back to Login</a>
+            <a className='back-login' onClick={() => setForgotPasswordMode(false)}>Back to Login</a>
           </div>
         ) : (
           <div>
