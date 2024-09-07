@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './LoginForm.css';
 import Logo from '/pulse-logo.png';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import  Footer from '../components/Footer.jsx'
 
 function LoginForm({ onLogin, onCreateAccountClick }) {
   const [username, setUsername] = useState('');
@@ -55,13 +56,15 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
                 <label>Email</label>
               </div>
               <button 
-                className='login-btn'
+                className='reset-btn'
                 type="submit"
               >
                 Send Reset Link
               </button>
             </form>
+            <div className='back-login-container'>
             <a className='back-login' onClick={() => setForgotPasswordMode(false)}>Back to Login</a>
+            </div>
           </div>
         ) : (
           <div>

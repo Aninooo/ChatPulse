@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-width: auto;
+    min-width: 200px;
     
 }
 .login {
@@ -15,6 +15,7 @@
     position: relative;
     top: 0px;
     margin-top: 0;
+    min-width: 200px;
 }
 
 .login-form {
@@ -139,6 +140,7 @@ input:not(:placeholder-shown) + label {
     font-size: 1rem; 
     color: white;
   }
+
 .login-btn {
     background-color:rgb(224, 77, 77);
     padding: 10px;
@@ -155,6 +157,24 @@ input:not(:placeholder-shown) + label {
 
 .login-btn:hover {
     background-color: red;
+}
+
+
+.reset-btn{
+  background-color:rgb(224, 77, 77);
+  padding: 10px;
+  margin-top: 10px;
+  width: calc(100% - 0px);
+  max-width: 280px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.reset-btn:hover{
+  background-color: red;
 }
 
 p {
@@ -204,9 +224,14 @@ p {
     color: white;
     cursor: pointer;
     top: 10px;
+    margin-bottom: 20px !important;
   }
   .back-login:hover{
     color: rgb(212, 73, 73);
+  }
+
+  .back-login-container{
+    padding-bottom: 20px;
   }
   
   @keyframes spin {
