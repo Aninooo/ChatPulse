@@ -54,7 +54,7 @@
   }
   
   .title2 {
-    color: rgb(196, 57, 57);
+    color: rgb(224, 77, 77);
   }
   .pulse-logo{
     width: 70px;
@@ -136,10 +136,10 @@ input:not(:placeholder-shown) + label {
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 1rem; 
-    color: #363535;
+    color: white;
   }
 .login-btn {
-    background-color: brown;
+    background-color:rgb(224, 77, 77);
     padding: 10px;
     margin-top: 20px;
     width: calc(100% - 40px);
@@ -240,8 +240,23 @@ input:not(:placeholder-shown) + label {
     .create-account {
         margin-left: 0;
         margin-bottom: 10px;
+        text-decoration: none;
+        color:white;
+        font-size: 11px;
+        padding-left: 15px;
+    }
+    .dont-have-acct{
+      margin-bottom: 5px;
+      font-size: 15px;
+
+    }
+    .setNewPassword{
+      color: white;
+      font-size: 11px;
+      padding-left: 25px;
     }
 }
+
   
   .login-btn.loading {
     background-color: transparent;
