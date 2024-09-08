@@ -28,10 +28,14 @@
 }
 
 .message {
+  min-width: 200px;
   margin-bottom: 10px;
   display: block;
-  max-width: fit-content;
+  max-width: 80%;
   clear: both;
+  word-wrap: break-word;
+  overflow-wrap: break-word ;
+
 }
 
 .message-image {
