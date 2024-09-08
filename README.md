@@ -23,8 +23,8 @@ This project is a milestone for me in my learning journey, where two significant
 <p align="center">
   <strong>Sample Conversation:</strong>
   <br>
-  <p>Bryan: </p>
+  <p  align="center">Admin: </p>
   <img src="https://github.com/user-attachments/assets/a7488485-329c-4f26-ba9a-2c89340ca4c9" alt="Sample Conversation" />
-  <p>Admin:</p>
+  <p align="center">Bryan:</p>
   <img src="https://github.com/user-attachments/assets/8d8de5e5-1ed0-4836-a639-8b763fb3fc37" alt="Sample Conversation" />
 </p>
