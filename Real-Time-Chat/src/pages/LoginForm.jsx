@@ -48,7 +48,7 @@ function LoginForm({ onLogin, onCreateAccountClick }) {
               <div className='input-wrapper'>
                 <input 
                   type="email" 
-                  placeholder=" " 
+                  placeholder="/" 
                   value={email} 
                   onChange={(e) => setEmail(e.target.value)} 
                   required 
