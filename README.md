@@ -7,7 +7,9 @@ This project is a milestone for me in my learning journey, where two significant
 ![image](https://github.com/user-attachments/assets/c44bb75c-9917-4c9e-b593-24fbae393515)
 
 sample conversation:  
-![image](https://github.com/user-attachments/assets/979beeb9-65e6-4d38-bb6c-d49a6850c2e2)
+![image](https://github.com/user-attachments/assets/a602ef9c-ba62-4867-9d5a-7e58f0a114ef)![image](https://github.com/user-attachments/assets/3d6dad41-e7a8-4c59-8d93-2226d3a2aa5c)
+
+
 
 
 
