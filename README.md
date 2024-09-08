@@ -3,7 +3,7 @@
 This project is a milestone for me in my learning journey, where two significant interests of mine come together-full-stack development and real-time communication. Since day one, I have always been committed to building a chat application which showcases my ability, continuous improvement, and innovation.
 
 <p align="center">
-  <strong>Login:</strong>
+  <strong>Login form with floating placeholder</strong>
   <br>
   <img src="https://github.com/user-attachments/assets/b639413c-ba62-41df-b596-cbe74d4e54e8" alt="Login" />
 </p>
