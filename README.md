@@ -21,10 +21,10 @@ This project is a milestone for me in my learning journey, where two significant
 </p>
 
 <p align="center">
-  <strong><b>Sample Conversation</b></strong>
+  <strong>Sample Conversation</strong>
   <br>
-  <p  align="center">Admin: </p>
-  <img  align="center" src="https://github.com/user-attachments/assets/a7488485-329c-4f26-ba9a-2c89340ca4c9" alt="Sample Conversation" />
-  <p align="center">Bryan:</p>
-  <img  align="center" src="https://github.com/user-attachments/assets/8d8de5e5-1ed0-4836-a639-8b763fb3fc37" alt="Sample Conversation" />
+  <p align="center"><strong>Admin:</strong></p>
+  <img src="https://github.com/user-attachments/assets/a7488485-329c-4f26-ba9a-2c89340ca4c9" alt="Admin Conversation" />
+  <p align="center"><strong>Bryan:</strong></p>
+  <img src="https://github.com/user-attachments/assets/8d8de5e5-1ed0-4836-a639-8b763fb3fc37" alt="Bryan Conversation" />
 </p>
