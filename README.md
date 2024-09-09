@@ -1,4 +1,5 @@
-﻿**Welcome to my real-time chat application!**
+﻿<p align="center">
+**Welcome to my real-time chat application!**
 
 This project is a milestone in my learning journey, combining my interests in full-stack development and real-time communication. I built the frontend using **React.js**, the backend with **Express.js**, and **MongoDB** for the database, focusing on continuous improvement and innovation.
 
@@ -8,7 +9,7 @@ This project is a milestone in my learning journey, combining my interests in fu
 - **MongoDB** – Database
 - **Socket.IO** – Real-time communication
 - **Node.js** – Runtime environment
-
+</p>
 <p align="center">
   <strong>Login form with floating placeholder</strong>
   <br>
