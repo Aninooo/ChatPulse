@@ -24,7 +24,7 @@ const setupSocketIO = (server) => {
 
         socket.to(room).emit('message', {
           text: `${username} has joined the room.`,
-          username: 'Anino Bot',
+          username: 'Anino Bot ',
           timestamp: new Date(),
         });
       } catch (error) {

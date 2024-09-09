@@ -121,24 +121,25 @@ function Chat() {
         <div className='chat-wrapper'>
           <div className='message-container'>
             {messages.map((msg, index) => (
-              <div 
-                key={index} 
-                className={`message ${msg.username === username ? 'my-message' : 'other-message'}`}
-                onClick={() => handleMessageClick(index)}
-              >
-                {visibleTimestamp === index && (
-                  <div className='message-timestamp'>{formatTime(msg.timestamp)}</div>
-                )}
-                {msg.username !== username && <strong>{msg.username}:</strong>}
-                {msg.text}
-                {msg.imageUrl && (
-                  <img
-                    src={`http://localhost:4000${msg.imageUrl}`}
-                    alt="uploaded"
-                    className='message-image'
-                  />
-                )}
-              </div>
+             <div 
+             key={index} 
+             className={`message ${msg.username === username ? 'my-message' : 'other-message'}`}
+             onClick={() => handleMessageClick(index)}
+           >
+             {visibleTimestamp === index && (
+               <div className='message-timestamp'>{formatTime(msg.timestamp)}</div>
+             )}
+             {msg.username !== username && <strong>{msg.username}:</strong>}
+             {msg.text}
+             {msg.imageUrl && (
+               <img
+                 src={`http://localhost:4000${msg.imageUrl}`}
+                 alt="uploaded"
+                 className='message-image'
+               />
+             )}
+           </div>
+           
             ))}
             {typingUsers.length > 0 && (
               <div className='typing-indicator'>
