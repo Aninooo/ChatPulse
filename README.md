@@ -10,7 +10,7 @@ This project is a milestone in my learning journey, combining my interests in fu
 - **Node.js** – Runtime environment
 
 <p align="center">
-  <strong>Login:</strong>
+  <strong>Login form with floating placeholder</strong>
   <br>
   <img src="https://github.com/user-attachments/assets/b639413c-ba62-41df-b596-cbe74d4e54e8" alt="Login" />
 </p>
@@ -28,8 +28,10 @@ This project is a milestone in my learning journey, combining my interests in fu
 </p>
 
 <p align="center">
-  <strong>Sample Conversation:</strong>
+  <strong>Sample Conversation</strong>
   <br>
-  <img src="https://github.com/user-attachments/assets/a7488485-329c-4f26-ba9a-2c89340ca4c9" alt="Sample Conversation" />
-  <img src="https://github.com/user-attachments/assets/8d8de5e5-1ed0-4836-a639-8b763fb3fc37" alt="Sample Conversation" />
+  <strong>Admin:</strong><br>
+  <img src="https://github.com/user-attachments/assets/a7488485-329c-4f26-ba9a-2c89340ca4c9" alt="Admin Conversation" />
+  <br><strong>Bryan:</strong><br>
+  <img src="https://github.com/user-attachments/assets/8d8de5e5-1ed0-4836-a639-8b763fb3fc37" alt="Bryan Conversation" />
 </p>
