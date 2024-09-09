@@ -17,7 +17,7 @@ This project is a milestone in my learning journey, combining my interests in fu
 </p>
 
 <p align="center">
-  <strong>Forgot Password:</strong>
+  <strong>Forgot Password</strong>
   <br>
   <img src="https://github.com/user-attachments/assets/46dfe756-5a57-4b8d-b720-c45e68881321" alt="Forgot Password" />
 </p>
